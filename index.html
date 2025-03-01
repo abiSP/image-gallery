@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  
+    <div class="main-container">
+        <header class="header">
+            <h1>📸 Image Gallery</h1>
+            <p class="tagline"></p>
+        </header>
+
+       
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+
+
+        <section class="upload-section">
+            <h2>Upload Your Images</h2>
+            <div class="upload-box">
+                <input type="file" id="fileInput" accept="image/*" multiple>
+                <input type="text" id="imageTitle" placeholder="Enter Image Title">
+                <textarea id="imageDesc" placeholder="Enter Image Description"></textarea>
+                <select id="imageCategory">
+                    <option value="nature">Nature</option>
+                    <option value="architecture">Architecture</option>
+                    <option value="abstract">Abstract</option>
+                    <option value="portrait">Portrait</option>
+                    <option value="urban">Urban</option>
+                    <option value="travel">Travel</option>
+                    <option value="food">Food</option>
+                    <option value="fashion">Fashion</option>
+                </select>
+                <button onclick="uploadImage()">Upload Image</button>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <div class="search-filter">
+                <input type="text" id="searchBox" onkeyup="searchImages()" placeholder="Search by description...">
+                <select id="categoryFilter" onchange="filterImages()">
+                    <option value="all">All</option>
+                    <option value="nature">Nature</option>
+                    <option value="architecture">Architecture</option>
+                    <option value="abstract">Abstract</option>
+                    <option value="portrait">Portrait</option>
+                    <option value="urban">Urban</option>
+                    <option value="travel">Travel</option>
+                    <option value="food">Food</option>
+                    <option value="fashion">Fashion</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="gallery-section">
+            <div id="gallery" class="gallery">
+                <!-- Dynamically loaded images will go here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button onclick="prevPage()">⬅️ Prev</button>
+                <span id="pageNumber">1</span>
+                <button onclick="nextPage()">Next ➡️</button>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="Image">
+            <p id="lightbox-title"></p>
+            <p id="lightbox-desc"></p>
+        </div>
+
+       
+
+    <script src="script.js"></script>
+</body>
+</html>
